@@ -48,7 +48,7 @@ const [showModalEditar, setShowModalEditar] = useState(false);
 
   const fetchProductos = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getproductos");
+      const response = await axios.get("/getproductos");
       setProductos(response.data);
     } catch (err) {
       console.error("Error al obtener productos:", err);
@@ -66,7 +66,7 @@ const [showModalEditar, setShowModalEditar] = useState(false);
   setError("");
 
   try {
-    await axios.post("http://localhost:5000/registerproduct", {
+    await axios.post("/registerproduct", {
       nombre,
       cantidad_total: parseInt(cantidad_total),
       cantidad_entrada: parseInt(cantidad_entrada),
@@ -101,7 +101,7 @@ const handleActualizarProducto = async (e) => {
 
   try {
     
-    await axios.put(`http://localhost:5000/updateproduct/${productoEditando.id}`, {
+    await axios.put(`/updateproduct/${productoEditando.id}`, {
       precio_unitario: parseFloat(nuevoPrecioUnitario),
       cantidad_total: parseInt(nuevaCantidadTotal),
       cantidad_devuelta_cliente: parseInt(nuevaCantidadDevuelta),
@@ -125,7 +125,7 @@ const handleActualizarProducto = async (e) => {
     if (!productoSalida) return;
 
     try {
-      await axios.post("http://localhost:5000/registersalida", {
+      await axios.post("/registersalida", {
         id: productoSalida.id,
         unidades_vendidas: parseInt(unidadesVendidas || 0),
         unidades_devueltas: parseInt(unidadesDevueltas || 0),

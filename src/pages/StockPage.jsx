@@ -16,7 +16,7 @@ function StockPage() {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/getproductos");
+        const response = await axios.get("/getproductos");
         setProductos(response.data);
       } catch (err) {
         console.error("Error al obtener productos:", err);

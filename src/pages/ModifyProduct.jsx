@@ -12,7 +12,7 @@ function ModifyProduct() {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/getproductos");
+        const response = await axios.get("/getproductos");
         setProductos(response.data);  // Asumiendo que el backend retorna un array de productos
       } catch (err) {
         console.error("Error al obtener productos:", err);
@@ -32,7 +32,7 @@ function ModifyProduct() {
     }
 
     try {
-      const response = await axios.put("http://localhost:5000/modifyproduct", {
+      const response = await axios.put("/modifyproduct", {
         id: selectedProducto,
         cantidad,
         precio,
@@ -47,7 +47,7 @@ function ModifyProduct() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/deleteproduct/${id}`);
+      const response = await axios.delete(`/deleteproduct/${id}`);
       alert("Producto eliminado exitosamente.");
       setProductos(productos.filter(producto => producto.id !== id));  // Actualizar la lista de productos
     } catch (err) {
