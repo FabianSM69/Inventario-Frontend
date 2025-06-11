@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";  // Importamos axios para hacer la solicitud HTTP
-
+import axios from '../api';
 function Support() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

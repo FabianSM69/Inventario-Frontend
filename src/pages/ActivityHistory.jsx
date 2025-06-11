@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from '../api';
 function ActivityHistory() {
   const [activityHistory, setActivityHistory] = useState([]);
   const [role, setRole] = useState("");  // Estado para el rol

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from '../api';
 import { Link } from "react-router-dom";
-
 function ModifyProduct() {
   const [productos, setProductos] = useState([]);
   const [selectedProducto, setSelectedProducto] = useState("");

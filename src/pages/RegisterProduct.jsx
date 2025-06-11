@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-
+import axios from '../api';
 function RegisterProduct() {
   const [activeTab, setActiveTab] = useState("entrada");
   const [nombre, setNombre] = useState("");

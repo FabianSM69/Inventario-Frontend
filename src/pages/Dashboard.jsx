@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import axios from '../api';
 function Dashboard() {
   const [imageIndex, setImageIndex] = useState(0);
   const [role, setRole] = useState(null); // Estado para almacenar el rol

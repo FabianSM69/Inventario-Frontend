@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import axios from '../api';
 function Layout({ children }) {
   const location = useLocation();
 
