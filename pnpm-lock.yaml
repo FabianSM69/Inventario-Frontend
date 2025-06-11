@@ -26,6 +26,9 @@ importers:
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.6(@popperjs/core@2.11.8)
+      chart.js:
+        specifier: ^4.4.9
+        version: 4.4.9
       cors:
         specifier: ^2.8.5
         version: 2.8.5
