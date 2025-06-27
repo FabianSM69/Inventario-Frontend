@@ -16,8 +16,7 @@ function StockPage() {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await axios.get("/getproductos");
-        setProductos(response.data);
+      const response = await axios.get('https://inventario-backend-i6he.onrender.com/getconteofisico');        setProductos(response.data);
       } catch (err) {
         console.error("Error al obtener productos:", err);
         setError("No se pudo cargar los productos.");
