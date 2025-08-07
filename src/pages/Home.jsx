@@ -33,7 +33,7 @@ export default function Home() {
             </li>
           ))}
           <li style={{ marginLeft: 'auto' }}>
-            <a href="/login" className="btn ingreso">Ingresar</a>
+            <a href="/Login" className="btn ingreso">Ingresar</a>
           </li>
         </ul>
       </nav>
