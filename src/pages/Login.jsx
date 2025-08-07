@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../api";
 import "../App.css"; // tus estilos generales, incluyendo .login-page, .login-visual, .login-panel, etc.
-import CryptoJS from "crypto-js";
 const carouselImages = [
   "/imagenes/Login1.webp",
   "/imagenes/login1.jpg",
@@ -64,15 +63,12 @@ function Login() {
       password: passTrimmed,
     });
 
-    const { token, role, encryptedUser } = data;
-    const secretKey = "TestDeKey"; // reemplaza con una real en producción
-
-    const bytes = CryptoJS.AES.decrypt(encryptedUser, secretKey);
-    const decryptedUser = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+   const { token, role, user } = data;
 
     localStorage.setItem("token", token);
     localStorage.setItem("role", role);
-    localStorage.setItem("user", JSON.stringify(decryptedUser));
+    localStorage.setItem("user", JSON.stringify(user));
+
     navigate("/dashboard");
   } catch (err) {
     console.error("❌ Error al iniciar sesión:", err);
