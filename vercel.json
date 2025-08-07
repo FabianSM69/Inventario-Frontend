@@ -3,5 +3,8 @@
     "env": {
       "VERCEL_PREFER_PNPM": "1"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
