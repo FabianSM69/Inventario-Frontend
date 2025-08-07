@@ -31,9 +31,27 @@ function Register() {
   const strength = getPasswordStrength(form.password);
 
   const handleChange = e => {
-    const { name, value } = e.target;
-    setForm(f => ({ ...f, [name]: value }));
-  };
+  const { name, value } = e.target;
+
+  // Validación por campo
+  if (name === "username") {
+    const valid = /^[a-zA-Z0-9_-]*$/.test(value); // solo si todos los caracteres son válidos
+    if (!valid) return;
+  }
+
+  if (name === "ownerName") {
+    const valid = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]*$/.test(value);
+    if (!valid) return;
+  }
+
+  if (name === "phone") {
+    const valid = /^\d*$/.test(value);
+    if (!valid) return;
+  }
+
+  setForm(f => ({ ...f, [name]: value }));
+};
+
 
   const handleRegister = async e => {
   e.preventDefault();
