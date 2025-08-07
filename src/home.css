@@ -1,0 +1,301 @@
+:root {
+  /* Colores primarios */
+  --color-primary:        #4F93FF;
+  --color-primary-2:      #285CFF;
+  --color-primary-dark:   #1F4BC8;
+
+  /* Colores secundarios / acentos */
+  --color-accent:         #FFC700;
+  --color-accent-dark:    #E0A800;
+
+  /* Neutros */
+  --color-bg:             #F5F7FA;
+  --color-card-bg:        #FFFFFF;
+  --color-text:           #333333;
+  --color-text-secondary: #555555;
+
+  /* Feedback */
+  --color-success:        #28A745;
+  --color-warning:        #FFC107;
+  --color-error:          #DC3545;
+
+  /* Otros */
+  --radius:               8px;
+  --shadow-light:         0 2px 8px rgba(0,0,0,0.1);
+  --font-heading:         'Merriweather', serif;
+}
+
+/* Reset y scroll suave */
+html { scroll-behavior: smooth; }
+
+/* ▶️ Navbar */
+.home-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  padding: 0 2rem;
+  display: flex; align-items: center;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-light);
+  z-index: 100;
+}
+.home-page { padding-top: 60px; }
+
+.home-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0; padding: 0;
+  list-style: none;
+  width: 100%;
+}
+.home-nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+}
+.home-nav a:hover,
+.home-nav a.active {
+  color: var(--color-primary);
+}
+.home-nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 3px;
+  background: var(--color-primary-dark);
+  border-radius: 2px;
+}
+
+/* Botón Ingresar */
+.home-nav a.ingreso {
+  margin-left: auto;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+/* ▶️ Secciones genéricas */
+.home-section {
+  padding: 4rem 1rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.home-section.card {
+  background: var(--color-card-bg);
+  box-shadow: var(--shadow-light);
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+/* Texto dentro de tarjetas */
+.home-section.card h1,
+.home-section.card h2,
+.home-section.card p {
+  color: var(--color-primary-dark);
+}
+
+/* ▶️ Hero */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-2));
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+#hero h1 { font-size: 3rem; margin-bottom: 1rem; font-family: var(--font-heading); }
+#hero p { font-size: 1.25rem; max-width: 600px; text-align: center; }
+
+/* ▶️ Animaciones */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeUp 0.6s ease-out forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ▶️ Formulario Contacto */
+.contact-form {
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: var(--radius);
+  transition: border-color 0.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-primary);
+}
+
+/* Botón Enviar */
+.btn.envio {
+  background: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn.envio:hover {
+  background: var(--color-accent-dark);
+}
+
+/* ▶️ Footer */
+.home-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+/*animacion de inicio*/
+.animated-title {
+  text-transform: uppercase;
+  font-size: 10rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  letter-spacing: .5rem;
+  display: inline-block;
+  padding: 1rem 0;
+  position: relative;
+  animation: shine 2s infinite linear;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #ff00ff,
+    0 0 20px #00ffff,
+    0 0 40px #ffff00;
+}
+
+@keyframes shine {
+  0% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #ff00ff,
+      0 0 20px #00ffff,
+      0 0 40px #ffff00;
+  }
+  50% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px #00ffff,
+      0 0 10px #ff00ff,
+      0 0 20px #00ff00;
+  }
+  100% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #ff00ff,
+      0 0 20px #00ffff,
+      0 0 40px #ffff00;
+  }
+}
+
+/*funcion forzada para la de preguntas*/
+details summary {
+  font-size: 1rem;        /* Fuerza tamaño normal */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+details[open] summary {
+  font-size: 1rem;        /* Igual tamaño al abrir */
+}
+
+
+/* ▶️ Fondo decorativo tipo ola para #hero */
+/* Contenedor externo del fondo decorativo */
+.home-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%23e5f0ff' fill-opacity='1' d='M0,192L60,197.3C120,203,240,213,360,197.3C480,181,600,139,720,144C840,149,960,203,1080,213.3C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z'></path></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-page::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 380px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%23cce8ff' fill-opacity='1' d='M0,128L40,133.3C80,139,160,149,240,170.7C320,192,400,224,480,229.3C560,235,640,213,720,197.3C800,181,880,171,960,176C1040,181,1120,203,1200,197.3C1280,192,1360,160,1400,144L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z'/></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-divider-circles-full {
+  width: 100%;
+  height: 180px;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 180' xmlns='http://www.w3.org/2000/svg'><circle cx='100' cy='100' r='40' fill='%23FFD700'/><circle cx='300' cy='80' r='30' fill='%23666'/><circle cx='550' cy='120' r='25' fill='%23FFD700'/><circle cx='750' cy='90' r='35' fill='%23888'/><circle cx='1000' cy='110' r='30' fill='%23FFD700'/><circle cx='1250' cy='70' r='35' fill='%23666'/></svg>");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+
+.background-decorations {
+  position: absolute;
+  width: 100%;
+  min-height: 10px; /* ✅ suficiente para cubrir toda la página */
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.circle.yellow {
+  background-color: #FFD700;
+  width: 40px;
+  height: 40px;
+}
+
+.circle.gray {
+  background-color: gray;
+  width: 60px;
+  height: 60px;
+}
+
+
+.home-section {
+  position: relative; /* ¡clave para que los círculos se posicionen dentro! */
+}
